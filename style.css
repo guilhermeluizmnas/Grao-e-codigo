@@ -340,16 +340,19 @@ footer {
 
 /* TRANSIÇÃO ENTRE PÁGINAS */
 
-@view-transition {
-    navigation: auto;
-}
+@media (prefers-reduced-motion: no-preference) {
 
-::view-transition-old(root) {
-    animation: desaparecer 0.35s ease-in-out;
-}
+    @view-transition {
+        navigation: auto;
+    }
 
-::view-transition-new(root) {
-    animation: aparecer 0.45s ease-in-out;
+    ::view-transition-old(root) {
+        animation: 0.4s ease-in both desaparecer;
+    }
+
+    ::view-transition-new(root) {
+        animation: 0.5s ease-out both aparecer;
+    }
 }
 
 @keyframes desaparecer {
