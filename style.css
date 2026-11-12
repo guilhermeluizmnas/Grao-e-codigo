@@ -337,3 +337,42 @@ footer {
         flex-wrap: wrap;
     }
 }
+
+
+/* TRANSIÇÃO ENTRE PÁGINAS */
+
+@media (prefers-reduced-motion: no-preference) {
+
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition-old(root) {
+        animation: desaparecer 0.35s ease-in-out;
+    }
+
+    ::view-transition-new(root) {
+        animation: aparecer 0.45s ease-in-out;
+    }
+
+}
+
+@keyframes desaparecer {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
